@@ -1,0 +1,62 @@
+h2.modal-title Add Payment Method
+
+section.element
+
+    form.content(action="/async/addPayment", method="POST", id="payment-form")
+        table
+            span.payment-errors
+            tr(class="form-row")
+                label
+                    td
+                        span.block Card Number &nbsp;
+                    td
+                        input.text#card_number.cc-num(
+                            type="text"
+                            autocomplete="off"
+                            autocorrect="off"
+                            spellcheck="off"
+                            autocapitalize="off"
+                            size="24"
+                            placeholder="Card Number"
+                            data-stripe="number"
+                        )
+
+            tr(class="form-row")
+
+                label
+                    td
+                        span.block Expiring &nbsp;
+                    td
+                        label
+                            input.text#month(style="display: inline;",
+                                type="tel",
+                                autocomplete="off",
+                                autocorrect="off",
+                                spellcheck="off",
+                                autocapitalize="off",
+                                size="3",
+                                placeholder="MM",
+                                data-stripe="exp-month",
+                            )
+
+                            span(style="display: inline;") /
+                            input.text#year(style="display: inline;",
+                                type="text",
+                                autocomplete="off",
+                                autocorrect="off",
+                                spellcheck="off",
+                                autocapitalize="off",
+                                size="5",
+                                placeholder="YYYY",
+                                data-stripe="exp-year",
+                            )
+            tr(class="form-row")
+                label
+                    td
+                        span.block CVC Code &nbsp;
+                    td
+                        input.text#cvc(type="text" autocomplete="off" autocorrect="off" spellcheck="off" autocapitalize="off" size="4" placeholder="CVC" data-stripe="cvc")
+button.save.payment(onclick="submitCard()") Securely Add Card
+
+script(type="text/javascript" src="https://js.stripe.com/v2/")
+script(type="text/javascript" src="/javascripts/stripe.js")

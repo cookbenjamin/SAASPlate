@@ -1,0 +1,45 @@
+button, .button {
+  cursor: pointer;
+  margin: 2px;
+  color: $link;
+  border: 1px solid $link;
+  background: none;
+  font-size: $normal;
+  padding: $padding;
+  text-transform: uppercase;
+  display: inline;
+
+}
+a.button {
+  line-height: 40px;
+}
+
+button:hover, .button:hover {
+  color: $light;
+  border: 1px solid $link;
+  background: $link;
+}
+
+button.warning, .button.warning {
+  color: $warning;
+  border: 1px solid $warning;
+}
+
+button.warning:hover, .button.warning:hover {
+  color: $light;
+  background: $warning;
+}
+
+button.success, .button.success {
+  color: $success;
+  border: 1px solid $success;
+}
+
+button.success:hover, .button.success:hover {
+  color: $light;
+  background: $success;
+}
+button.r, a.button.r {
+  float: right;
+  line-height: 21px;
+}

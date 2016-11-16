@@ -1,0 +1,15 @@
+// FORMS
+
+input.text {
+  border: 1px solid $light - 75;
+  padding: $padding;
+  font-size: $normal;
+}
+
+input.text.success {
+  border: 1px solid $success;
+}
+
+input.text.warning {
+  border: 1px solid $warning;
+}

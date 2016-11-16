@@ -1,0 +1,21 @@
+extends ../home/skeleton
+
+block content
+    div#lock
+        h2 Get Started
+
+        form(action="/signup" method="post")
+            table
+                tr
+                    td Your Name
+                    td.right
+                        input.text(type="text" name="name" placeholder="Your Name")
+                tr
+                    td Your email address
+                    td.right
+                        input.text(type="text" name="email" placeholder="han.solo@example.com")
+                tr
+                    td Choose a Password
+                    td.right
+                        input.text(type="password" name="password" placeholder="Password")
+            button(type="submit") Sign Up & Get Started >

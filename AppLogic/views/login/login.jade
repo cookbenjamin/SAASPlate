@@ -1,0 +1,16 @@
+extends ../home/skeleton
+
+block content
+    div#lock
+        h2 Sign In
+        form(action="/login" method="post")
+            table
+                tr
+                    td Email
+                    td.right
+                        input.text(type="text" name="email" placeholder="Email Address")
+                tr
+                    td Password
+                    td.right
+                        input.text(type="password" name="password" placeholder="Password")
+            button(type="submit") Log In >

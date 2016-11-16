@@ -1,0 +1,17 @@
+// EFFECTS
+@mixin shadow() {
+  @include box-shadow(5px, -5px, 10px, -2px, rgba(0,0,0,.1));
+}
+
+@mixin password() {
+  -webkit-text-security: disc;
+  -khtml-text-security: disc;
+  -moz-text-security: disc;
+  -ms-text-security: disc;
+  -o-text-security: disc;
+  text-security: disc;
+}
+
+@mixin std-tran($params: all) {
+  @include transition($params .1s cubic-bezier(.46,.11,.28,1));
+}

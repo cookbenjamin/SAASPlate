@@ -1,0 +1,15 @@
+#mainBar {
+  box-sizing: border-box;
+  z-index: 1;
+  width: 80%;
+  padding: 50px;
+  display: inline-block;
+  *display: inline;
+  vertical-align: top;
+  height: 100%;
+  @include shadow();
+  @include std-tran();
+}
+#mainBar.supp {
+  width: 40%;
+}

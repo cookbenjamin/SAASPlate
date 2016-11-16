@@ -1,0 +1,14 @@
+#suppBar {
+  z-index: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  *display: inline;
+  width: 40%;
+  height: 100%;
+  padding: 50px;
+  position: fixed;
+
+  .close, .save {
+    float: right;
+  }
+}

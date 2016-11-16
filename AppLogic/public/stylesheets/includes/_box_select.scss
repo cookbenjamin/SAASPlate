@@ -1,0 +1,37 @@
+div.selection {
+  text-align: center;
+  div.box-select {
+    width: 300px;
+    height: 300px;
+    border: 1px solid $link;
+    color: $link;
+    display: inline-block;
+    margin: 30px;
+    margin-left: 0px;
+    position: relative;
+    vertical-align: middle;
+    box-sizing: border-box;
+    text-align: center;
+    h3, span {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+
+      color: $link;
+    }
+    h3 {
+      text-transform: uppercase;
+      font-size: 1.2em;
+      bottom: 60px;
+    }
+  }
+  div.box-select:hover {
+    background: $link;
+    color: white;
+  }
+
+  div.box-select:hover > h3, div.box-select:hover > span {
+    color: white;
+  }
+
+}

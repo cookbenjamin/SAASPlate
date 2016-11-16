@@ -1,0 +1,40 @@
+.spreadsheet {
+  th {
+    min-width: 30px;
+
+  }
+  th, td {
+    border: 1px solid lightgray;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: middle;
+    text-align: center;
+  }
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+
+  table {
+    min-width: 100%;
+    min-height: 100%;
+  }
+  th, td {
+    font-family: Roboto;
+    padding: 8px 0px 8px 0px;
+    min-width: 100px;
+    min-height: 100px;
+  }
+  th.selected {
+    background: #07f;
+    color: white;
+  }
+  td.selected {
+    background: #def;
+  }
+}
+.table-container {
+  width: 100%;
+  max-height: 100%;
+  overflow: auto;
+}

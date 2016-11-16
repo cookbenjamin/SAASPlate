@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        title= title
+        link(href="/stylesheets/fullPage.css", rel="stylesheet")
+        link(rel='stylesheet', href='/stylesheets/style.css')
+
+    body
+        //canvas
+        header
+            h1.logo POLYMATH
+            a.button(href="/login") Login
+            a.button(href="/signup") Get Started
+        block content
+
+
+        script(src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js")
+        script(src="/javascripts/fullpage.js")
+        script.
+            $(document).ready(function() {
+                $('#fullpage').fullpage({
+                    sectionSelector: '.vertical-scrolling',
+                    sectionsColor: [""],
+                    navigation: true,
+                    slidesNavigation: true,
+                    controlArrows: false
+                    // more options here
+                });
+            });

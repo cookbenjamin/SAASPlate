@@ -1,0 +1,58 @@
+.hidden {
+  @include opacity(0);
+  pointer-events: none;
+  position: absolute;
+}
+.invisible {
+  @include opacity(0);
+  pointer-events: none;
+}
+
+#blackout {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.4);
+  pointer-events: none;
+  opacity: 0;
+  position: fixed;
+  z-index:3;
+  @include std-tran();
+  padding-bottom:100px;
+}
+#blackout.visible {
+  pointer-events: auto;
+  @include opacity(1);
+}
+
+#modal {
+  width: $modal-width;
+  position: absolute;
+  left:50%;
+  top: 200px;
+  margin-left: -.5 * $modal-width;
+  background-color: rgba(255,255, 255, 1);
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.05, 1.05);
+  z-index:4;
+  padding:40px;
+  @include shadow();
+  @include std-tran();
+  .close, .save {
+    float: right;
+  }
+}
+#modal.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1, 1);
+}
+
+#not-modal.modal-open {
+  width:100%;
+  height:100%;
+  position: fixed;
+}
+.element {
+  margin: $element-margin;
+}

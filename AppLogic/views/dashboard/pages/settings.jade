@@ -1,0 +1,60 @@
+if !async
+    extends ../skeleton
+
+block content
+    section.element
+        h2.section-title My Details
+        table.content
+            tr
+                td Name
+                td.center(contenteditable=true)= user.name
+                td.right: button.invisible Change
+            tr
+                td Email
+                td.center= user.email
+                td.right: button.invisible Change
+            tr
+                td Image
+                td.center: a(href="#{user.image}") Gravatar
+                td.right: a(target="_blank", href="http://en.gravatar.com/emails/"): button Change
+            tr
+                td Password
+                td.pw something
+                td.right: a(onclick="suppBar.load('suppBar/resetPassword')"): button Change
+
+    section.element
+        h2.section-title Payment Methods
+        table.content
+            if !user.card
+                tr
+                    td No payment method
+                    td.right
+                        button(onclick="suppBar.load('suppBar/newPayment')") Add a payment method
+            else
+                if user.billing_enabled
+                    tr
+                        td Billing Enabled
+                        td.right
+                            button(onclick="modal.load('async/loadPayment')") Disable Billing
+                else
+                    tr
+                        td Billing disabled
+                        td.right
+                            button(onclick="modal.load('async/loadPayment')") Enable Billing
+                tr
+                    td Payment Method Stored
+                    td.right
+                        button(onclick="modal.load('async/loadPayment')") Change payment method
+
+    section.element
+        h2.section-title Account
+        table.content
+            tr
+                td Logout
+
+                td.right: a(href="/logout"): button Logout
+            tr
+                td Delete Account
+
+                td.right
+                    button#deleteAccountButton.warning(onclick="modal.load('modal/deleteAccount')") Delete Account

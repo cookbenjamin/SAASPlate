@@ -1,0 +1,50 @@
+#navBar {
+  box-sizing: border-box;
+  z-index: 2;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  position: fixed;
+  text-align: center;
+  font-size: 1.25em;
+  letter-spacing: .01em;
+  @include shadow();
+  #logo {
+    position: absolute;
+    top:150px;
+    @include horizontal-center();
+  }
+  #profile {
+    position: absolute;
+    bottom: 100px;
+    @include horizontal-center();
+    #profileName {
+      margin-top:22px;
+    }
+    #profileImageHolder {
+      @include border-radius(50%);
+      overflow: hidden;
+      width: 80px;
+      height: 80px;
+    }
+  }
+  ul {
+    @include vertical-center();
+    @include horizontal-center();
+    li {
+      margin-top: 1.5em;
+    }
+    height: 170px;
+    margin-top: -80px;
+  }
+
+}
+#navBarPlaceholder {
+  box-sizing: border-box;
+  z-index: -1;
+  width: 20%;
+  opacity: 0;
+  display: inline-block;
+  *display: inline;
+  vertical-align: top;
+}

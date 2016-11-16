@@ -1,0 +1,12 @@
+@import "./formatting";
+
+#lock {
+  width: 500px;
+  height: 280px;
+  margin-top: -140px;
+  @include vertical-center();
+  @include horizontal-center();
+  button {
+    float: right;
+  }
+}

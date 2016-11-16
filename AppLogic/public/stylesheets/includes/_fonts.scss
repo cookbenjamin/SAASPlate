@@ -1,0 +1,32 @@
+// FONTS
+// families
+$sans: Roboto, Helvetica, Sans-serif;
+
+// weights
+$thin: 300;
+$medium: 500;
+$bold: 900;
+
+// sizes
+$normal: 1em;
+
+p, span, a, button, h1, h2, h3, h4, h5, h6 {
+  font-family: $sans;
+  font-weight: $thin;
+  color: $dark;
+  text-decoration: none;
+  display: block;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: smaller;
+}

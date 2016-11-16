@@ -1,0 +1,42 @@
+block suppContent
+    h2.modal-title New Layer
+
+    section.element
+        h3.section-title Layers
+        form#newLayerForm(method="POST")
+            table#newLayerTable.content
+                tr
+                    td Type
+                    td#outputLayerTypeCell
+                        script.
+                            model.maker.generateLayerTypeSelect()
+                    td.right: button Help
+                tr.layerParam.basicLayer
+                    td Number of Units
+                    td: input.text.layerParamInput(type="text" name="numUnits" size="3")
+                    td.right: button Help
+                tr.layerParam.convLayer.hidden
+                    td Number of Filters
+                    td: input.text.layerParamInput(type="text" name="numFilters" size="3")
+                    td.right: button Help
+                tr.layerParam.convLayer.hidden
+                    td Filter Shape
+                    td
+                        input.inline.text.layerParamInput(type="text" name="shape" placeholder="x, x, x" size="5")
+                    td.right: button Help
+                tr.layerParam.convLayer.hidden
+                    td Stride
+                    td: input.text.layerParamInput(type="text" name="stride" size="3")
+                    td.right: button Help
+                tr.layerParam.convLayer.hidden
+                    td Pad
+                    td: input.text.layerParamInput(type="text" name="pad" size="3")
+                    td.right: button Help
+                tr.layerParam.convLayer.basicLayer
+                    td Activation
+                    td#outputActivationCell
+                        script.
+                            model.maker.generateActivationSelect()
+                    td.right: button Help
+
+        button.save(onclick="model.addLayer()") Add Layer

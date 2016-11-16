@@ -1,0 +1,26 @@
+#fullpage {
+  * {
+    letter-spacing: .05em;
+  }
+  p, button, a.button {
+    font-size: 1.2em;
+  }
+  .center {
+    @include vertical-center;
+    @include horizontal-center;
+    text-align: center;
+  }
+
+  .center-left {
+    @include vertical-center;
+    margin-right: 50%;
+    width: 50%;
+    text-align: right;
+  }
+
+  .center-right {
+    @include vertical-center;
+    margin-left: 50%;
+    width: 50%;
+  }
+}

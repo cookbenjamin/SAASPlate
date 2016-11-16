@@ -1,0 +1,28 @@
+// TABLES
+
+table {
+  width: 100%;
+  tr:hover {
+    background: $light - 10;
+  }
+  margin: 20px;
+  tr {
+    border-bottom:1px solid $light - 75;
+  }
+  tr:last-of-type {
+    border-bottom:none;
+  }
+
+  td {
+    font-family: $sans;
+    font-weight: $thin;
+    padding: 10px 20px;
+    color: $dark + 100;
+  }
+  td.right {
+    text-align: right;
+  }
+  td.pw {
+    @include password();
+  }
+}

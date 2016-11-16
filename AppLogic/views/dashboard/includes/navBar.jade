@@ -1,0 +1,22 @@
+div#navBarPlaceholder
+div#navBar
+    nav
+        a
+            div#logo
+                img(src="/images/logo.png" height="20")#logoImage
+        ul
+            //li
+            //    a(href="/dashboard") Dashboard
+            li
+                a(href="/models") Models
+            li
+                a(href="/data") Data
+            li
+                a(href="/settings") Settings
+
+        a
+            div#profile
+                a(href="/settings")
+                    div#profileImageHolder
+                        img#profileImage(src=user.image width="80" height="80")
+                    span#profileName= user.name

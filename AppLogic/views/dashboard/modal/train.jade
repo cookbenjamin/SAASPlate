@@ -1,0 +1,41 @@
+input#dataId(type="hidden")
+input#modelId(type="hidden" value=model.id)
+h2.modal-title Train&nbsp;
+    =model.name
+section.element
+    h3.section-title Input Data Source
+
+    table.content
+        if !data
+            tr
+                td No datasets
+        else
+            tr
+                td Name
+                td Size
+                td.right Options
+            for x in data
+                tr
+                    td=x.name
+                    td=x.size
+                    td.right
+                        button.data-select(class=x.id onClick="selectData("+data.id+")" ) Select
+
+    h3.section-title Output Data Source
+
+        table.content
+            if !data
+                tr
+                    td No datasets
+            else
+                tr
+                    td Name
+                    td Size
+                    td.right Options
+                for x in data
+                    tr
+                        td=x.name
+                        td=x.size
+                        td.right
+                            button.data-select(class=x.id onClick="selectData(" + data.id + ")" ) Select
+    button.save Train
