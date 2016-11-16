@@ -3,24 +3,4 @@ if !async
 
 block content
     section.element
-        h2.section-title Datasets
-        table.content
-            if !data
-                tr
-                    td No datasets
-                    td.right: button(onclick="modal.load('async/newData')") Add a Data Source
-            else
-                tr
-                    td Name
-                    td Size
-                    td.right Options
-                for x in data
-                    tr
-                        td=x.name
-                        td=x.size
-                        td.right
-                            //button.invisible Test
-                            a.button(href="/viewData/#{x.id}") View
-                            a.button.warning(href="/deleteData/#{x.id}") Delete
-    section.element
-        a.button.r(href="/newModel") Add a new dataset
+        h2.section-title Dashboard

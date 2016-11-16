@@ -8,7 +8,7 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/models', // redirect to the secure profile section
+    successRedirect: '/dashboard', // redirect to the secure profile section
     failureRedirect: '/login' // redirect back to the sign up page if there is an error
     // failureFlash: true // allow flash messages
 }));
@@ -19,7 +19,7 @@ router.get('/signup', function(req, res, next) {
 
 router.post('/signup', passport.authenticate('local-signup', {
     // todo change this to onboarding start workflow
-    successRedirect: 'dashboard.example.com:3000/models', // redirect to the secure profile section
+    successRedirect: '/dashboard', // redirect to the secure profile section
     failureRedirect: '/signup' // redirect back to the sign up page if there is an error
     // failureFlash: true // allow flash messages
 }));

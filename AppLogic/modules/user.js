@@ -1,11 +1,12 @@
 var dotenv = require('dotenv').config(),
-    pg = require('pg'),
-    config = {
-        user     : process.env.DB_USERNAME,
-        password : process.env.DB_PASSWORD,
-        database : process.env.DB_DATABASE_NAME
-    },
-    pool = new pg.Pool(config),
+    messenger = require('./messenger'),
+    // pg = require('pg'),
+    // config = {
+    //     user     : process.env.DB_USERNAME,
+    //     password : process.env.DB_PASSWORD,
+    //     database : process.env.DB_DATABASE_NAME
+    // },
+    // pool = new pg.Pool(config),
     bcrypt = require('bcrypt-nodejs'),
     stripe = require("stripe")(process.env.STRIPE_ID),
     gravatar = require('nodejs-gravatar');
@@ -65,23 +66,31 @@ User.validPassword = function(given_password, existing_password) {
 };
 
 User.find = function(email, callback) {
-
-    var sql = "SELECT id, name, email, password, stripe_id, image FROM users WHERE email = '" + email+"'";
-    pool.connect(function(err, client, done) {
-        if (err) {
-            return console.error('error fetching client from pool', err);
+    messenger.request("get_data", {
+        "table": "users",
+        "columns": ["*"],
+        "where": {
+            "email": email
         }
-        client.query(sql, function (err, result) {
-            //call `done()` to release the client back to the pool
-            // if cannot find email, user doesnt exist, return err
-            done();
-            if (result.rows) {
-                return callback(null, result.rows[0]);
-            } else {
-                callback("No user found", null);
-            }
-        });
-    });
+    }, function(response) {
+        return callback(null, response[0]);
+    })
+    // var sql = "SELECT id, name, email, password, stripe_id, image FROM users WHERE email = '" + email+"'";
+    // pool.connect(function(err, client, done) {
+    //     if (err) {
+    //         return console.error('error fetching client from pool', err);
+    //     }
+    //     client.query(sql, function (err, result) {
+    //         //call `done()` to release the client back to the pool
+    //         // if cannot find email, user doesnt exist, return err
+    //         done();
+    //         if (result.rows) {
+    //             return callback(null, result.rows[0]);
+    //         } else {
+    //             callback("No user found", null);
+    //         }
+    //     });
+    // });
 };
 
 User.insert = function(user, callback) {
