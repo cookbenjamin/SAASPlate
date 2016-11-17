@@ -228,16 +228,15 @@ input.text.warning {
     float: right; }
 
 header {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   box-sizing: border-box;
   height: 100px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.2);
   position: fixed;
   z-index: 1;
   width: 100%;
   padding: 0px 50px 0px 50px; }
   header span, header p, header h1, header a, header li {
-    color: white;
+    color: black;
     font-size: 1.2em;
     font-family: 'Roboto-light';
     display: inline;
@@ -254,8 +253,8 @@ header {
   header button, header a.button {
     margin-top: 28px;
     float: right;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid #000;
+    color: #000;
     background: none;
     text-transform: uppercase;
     padding: 10px 20px 10px 20px;
@@ -652,7 +651,7 @@ html.fp-enabled,
   left: 20px; }
 
 #fullpage * {
-  letter-spacing: .05em; }
+  line-height: 1.5em; }
 #fullpage p, #fullpage button, #fullpage a.button {
   font-size: 1.2em; }
 #fullpage .center {
