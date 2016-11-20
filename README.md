@@ -1,6 +1,6 @@
 # Saasplate
 
-![alt text](https://github.com/cookbenjamin/saasplate/AppLogic/public/images/blocks3.png")
+![alt text](https://github.com/cookbenjamin/saasplate/blob/master/AppLogic/public/images/blocks3.png?raw=true)
 
 Don't reinvent the wheel. Build your app faster with Saasplate.
 Saasplate is a simple boilerplate for a SAAS application, allowing you to rapidly develop a new app without focusing on rebuilding the basics.
