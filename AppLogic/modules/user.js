@@ -74,7 +74,7 @@ User.find = function(email, callback) {
         }
     }, function(response) {
         return callback(null, response[0]);
-    })
+    });
     // var sql = "SELECT id, name, email, password, stripe_id, image FROM users WHERE email = '" + email+"'";
     // pool.connect(function(err, client, done) {
     //     if (err) {

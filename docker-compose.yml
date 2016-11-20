@@ -1,0 +1,38 @@
+version: "2"
+services:
+
+  rabbitmq:
+      image: rabbitmq:management
+      ports:
+            - "15672:15672"
+            - "5672:5672"
+
+  db:
+    image: postgres
+    volumes_from:
+      - dbdata
+    ports:
+      - "5432:5432"
+  dbService:
+    image: saas-db
+    depends_on:
+      - rabbitmq
+      - db
+
+  redis:
+    image: redis
+  dbdata:
+      image: postgres
+      volumes:
+        - /var/lib/postgresql
+      command: "true"
+  logic:
+      image: saas-logic
+      depends_on:
+        - "rabbitmq"
+        - "db"
+        - "redis"
+      ports:
+        - "80:3000"
+      links:
+        - rabbitmq:rabbitmq

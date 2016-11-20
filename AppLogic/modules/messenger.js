@@ -1,4 +1,4 @@
-var context = require('rabbit.js').createContext();
+var context = require('rabbit.js').createContext('amqp://rabbitmq');
 
 var messenger = {
     request: function (queue, data, callback) {

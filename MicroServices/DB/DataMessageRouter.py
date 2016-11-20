@@ -73,7 +73,7 @@ class DataMessageRouter(object):
 
 def main():
     # todo create multiple threads
-    p = DataMessageRouter('localhost')
+    p = DataMessageRouter('rabbitmq')
 
 
 if __name__ == '__main__':
