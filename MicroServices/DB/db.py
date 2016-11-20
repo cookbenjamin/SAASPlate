@@ -3,10 +3,24 @@ import psycopg2 as pg
 
 class Database(object):
     def __init__(self, commit=True, verbose=False):
-        self._connection = pg.connect(dbname='cashmere_cat')
+        self.create_tables()
+        self._connection = pg.connect(user="postgres", host="db")
+        print("connected")
         self._commit = commit
         self.last_id = None
         self._verbose = verbose
+
+    def create_tables(self):
+        connection = pg.connect(host="db", user="postgres")
+        with open("users.sql", 'r') as file:
+            sql_file = file.read()
+        sql_commands = sql_file.split(";")
+        print(sql_commands)
+        with connection.cursor() as cursor:
+            for command in sql_commands:
+                if command != "":
+                    cursor.execute(command)
+                    connection.commit()
 
     def insert(self, table, **kwargs):
         fields, values = self.format_kwargs_for_insert(**kwargs)

@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL,
+    name TEXT NOT NULL,
+    email VARCHAR(1100) NOT NULL,
+    password VARCHAR(1100) NOT NULL,
+    image VARCHAR(1100) NOT NULL,
+    stripe_id VARCHAR(1100) NOT NULL
+);

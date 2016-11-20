@@ -9,25 +9,25 @@ class DataMessageRouter(object):
         self._messenger = Messenger(host)
         self._db = DB()
 
-        # self._messenger.wait(self.post, 'post_data')
+        self._messenger.wait(self.post, 'post_data')
         # self._messenger.wait(self.update, 'update_data')
         self._messenger.wait(self.get, 'get_data')
         # self._messenger.wait(self.delete, 'delete_data')
         self._messenger.consume()
 
-    # def post(self, channel, method, properties, body):
-    #     p = Process(target=self._post, args=(self, channel, method, properties, body))
-    #     p.start()
-    #     p.join()
-    #
-    # def _post(self, channel, method, properties, body):
-    #     data = json.loads(body.decode("utf-8"))
-    #     self._data_manager.post(data)
-    #
-    #     # process completed, send acknowledgment
-    #     channel.basic_ack(delivery_tag=method.delivery_tag)
-    #     message = json.dumps({"success": True})
-    #     self._messenger.respond(channel, properties, message)
+    def post(self, channel, method, properties, body):
+        p = Process(target=self._post, args=(channel, method, properties, body))
+        p.start()
+        p.join()
+
+    def _post(self, channel, method, properties, body):
+        data = json.loads(body.decode("utf-8"))
+        self._db.insert(data['table'], **data['data'])
+
+        # process completed, send acknowledgment
+        channel.basic_ack(delivery_tag=method.delivery_tag)
+        message = json.dumps({"success": True})
+        self._messenger.respond(channel, properties, message)
     #
     # def update(self, channel, method, properties, body):
     #     p = Process(target=self._update, args=(self, channel, method, properties, body))

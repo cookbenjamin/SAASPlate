@@ -94,24 +94,12 @@ User.find = function(email, callback) {
 };
 
 User.insert = function(user, callback) {
-    var keys = [],
-        values = [];
-    for (var key in user) {
-        keys.push(""+key+"");
-        values.push("'"+user[key]+"'");
-    }
-    keys = keys.join(", ");
-    values = values.join(", ");
-    var sql = "INSERT INTO users ("+keys+") VALUES ("+values+")";
-    pool.connect(function(err, client) {
-        if (err) {
-            return console.error('error fetching client from pool', err);
-        }
-        client.query(sql, function (err) {
-            callback(err);
-        });
+    messenger.request("post_data", {
+        table: "users",
+        data: user
+    }, function(response) {
+        return callback(null, response[0]);
     });
-
 };
 
 User.create = function(req, email, password, callback) {
